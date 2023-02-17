@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-
+   
     runs-on: self-hosted
 
     steps:
@@ -24,12 +24,21 @@ jobs:
     - name: Set up JDK 11
       uses: actions/setup-java@v3
       with:
+    
         java-version: '11'
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven mvn
-     
-      run: mvn sonar:sonar -Dsonar.login=43f37d7546c4f8b48ae085419ed4e1f9e887e9e8
     - run: mvn -B package --file pom.xml
+    - name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@master
+      with:
+        host: http://40.119.59.185:9000
+        login: 43f37d7546c4f8b48ae085419ed4e1f9e887e9e8
+    - uses: kitabisa/sonarqube-action@master
+    - with:
+       projectBaseDir: my-custom-directory  
+        
 
+      
    
