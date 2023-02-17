@@ -29,6 +29,5 @@ jobs:
         cache: maven
     - name: Build with Maven
      
-      run: mvn sonar:sonar -Dsonar.login=43f37d7546c4f8b48ae085419ed4e1f9e887e9e8
-    - run: mvn sonar:sonar -Dsonar.report.export.path=sonar-report.json 
+      run: mvn sonar:sonar -Dsonar.login=43f37d7546c4f8b48ae085419ed4e1f9e887e9e8 
     - run: mvn -B package --file pom.xml
