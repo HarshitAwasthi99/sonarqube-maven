@@ -29,5 +29,9 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean install
+    - run: mvn sonar:sonar \
+           -Dsonar.projectKey=maven \
+           -Dsonar.host.url=http://40.119.59.185:9000 \
+           -Dsonar.login=43f37d7546c4f8b48ae085419ed4e1f9e887e9e8
 
    
