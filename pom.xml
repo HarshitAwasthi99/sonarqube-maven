@@ -52,10 +52,10 @@
   </build>
   <repositories>
         <repository>
-            <id>central</id>
+            <id>nexus</id>
             <url>http://20.45.37.226:8081/repository/harshit-maven/</url>
         </repository>
-    </repositories>
+  </repositories>
   
   <profiles>
     <profile>
