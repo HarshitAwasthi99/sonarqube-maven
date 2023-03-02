@@ -50,12 +50,13 @@
       </plugins>
     </pluginManagement>
   </build>
-  <repositories>
-        <repository>
+  <mirrors>
+        <mirror>
             <id>nexus</id>
+            <mirrorOf>*</mirrorOf>     
             <url>http://20.45.37.226:8081/repository/harshit-maven/</url>
-        </repository>
-  </repositories>
+        </mirror>
+  </mirrors>
   
   <profiles>
     <profile>
