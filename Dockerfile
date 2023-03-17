@@ -1,4 +1,4 @@
-FROM maven:3.5.2-jdk-8-alpine AS builder
+FROM maven:latest-jdk-8-alpine AS builder
 
 COPY . /usr/src/myapp/
 WORKDIR /usr/src/myapp/
