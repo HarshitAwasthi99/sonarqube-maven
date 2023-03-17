@@ -2,6 +2,6 @@ FROM ubuntu
 
 COPY . /usr/src/myapp/
 WORKDIR /usr/src/myapp/
-RUN apt install mvn
+RUN apt-get update  
+RUN apt-get install -y maven 
 
-RUN mvn clean install
