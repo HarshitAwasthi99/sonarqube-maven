@@ -1,14 +1,7 @@
-FROM maven AS builder
+FROM ubuntu
 
 COPY . /usr/src/myapp/
 WORKDIR /usr/src/myapp/
+Run apt install mvn
 
 RUN mvn clean install
-
-
-FROM ubuntu
-WORKDIR /root/
-COPY --from=builder /usr/src/myapp/target/sonarscanner-maven-basic-1.0-SNAPSHOT.jar .
-EXPOSE 80
-CMD sleep 500
-
