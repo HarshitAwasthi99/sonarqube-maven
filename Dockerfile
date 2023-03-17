@@ -10,5 +10,5 @@ FROM maven
 WORKDIR /root/
 COPY --from=builder /usr/src/myapp/target/sonarscanner-maven-basic-1.0-SNAPSHOT.jar .
 EXPOSE 80
-CMD sleep 200
+CMD sleep 500
 
