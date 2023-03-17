@@ -3,7 +3,7 @@ RUN java -version
 COPY . /usr/src/myapp/
 WORKDIR /usr/src/myapp/
 RUN apk --no-cache add maven && mvn --version
-RUN mvn install --file pom.xml
+RUN mvn clean install
 
 FROM maven
 WORKDIR /root/
