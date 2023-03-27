@@ -31,7 +31,8 @@ jobs:
 
       - uses: Azure/aks-set-context@v3
         with:
-          cluster-name: aks-icici-poc
+          cluster-name: aks-poc2-icici
+
           resource-group: harshit_RG
 
       - uses: Azure/k8s-create-secret@v1.1
