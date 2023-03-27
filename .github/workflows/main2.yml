@@ -1,0 +1,49 @@
+on: [push]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@master
+
+      - uses: Azure/docker-login@v1
+        with:
+          login-server: acrforicicipoc.azurecr.io
+          username: acrforicicipoc
+          password: XMN7oCHVvwf6NtYOQthQQtJV9jppvH3i1UVGzGuXAE+ACRAako4r
+
+      - run: |
+          docker build . -t acrforicicipoc.azurecr.io/k8sdemo:${{ github.sha }}
+          docker push acrforicicipoc.azurecr.io/k8sdemo:${{ github.sha }}
+
+      - uses: azure/setup-kubectl@v2.0
+
+      # Set the target AKS cluster.
+      - uses: azure/login@v1
+        with:
+         client-id: 3d381001-a6ab-4ff4-8e8b-ce6a09b87b59
+         tenant-id: e4e34038-ea1f-4882-b6e8-ccd776459ca0
+         subscription-id: 052c9332-2138-411f-adef-e7445d02ecc6
+      
+      - uses: Azure/aks-set-context@v1
+        with:
+          
+          cluster-name: aks-icici-poc
+          resource-group: harshit_RG
+
+      - uses: Azure/k8s-create-secret@v1.1
+        with:
+          container-registry-url: acrforicicipoc.azurecr.io
+          container-registry-username: acrforicicipoc
+          container-registry-password: XMN7oCHVvwf6NtYOQthQQtJV9jppvH3i1UVGzGuXAE+ACRAako4r
+          secret-name: demo-k8s-secret
+
+      - uses: Azure/k8s-deploy@v3.1
+        with:
+          action: deploy
+          manifests: |
+            deployment.yml
+          images: |
+           acrforicicipoc.azurecr.io/k8sdemo:${{ github.sha }}
+          imagepullsecrets: |
+            demo-k8s-secret
