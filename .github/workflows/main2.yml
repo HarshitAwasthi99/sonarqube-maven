@@ -13,8 +13,8 @@ jobs:
           password: XMN7oCHVvwf6NtYOQthQQtJV9jppvH3i1UVGzGuXAE+ACRAako4r
 
       - run: |
-          docker build . -t acrforicicipoc.azurecr.io/k8sdemo:${{ github.sha }}
-          docker push acrforicicipoc.azurecr.io/k8sdemo:${{ github.sha }}
+          sudo docker build . -t acrforicicipoc.azurecr.io/k8sdemo:${{ github.sha }}
+          sudo docker push acrforicicipoc.azurecr.io/k8sdemo:${{ github.sha }}
 
       - uses: azure/setup-kubectl@v2.0
 
