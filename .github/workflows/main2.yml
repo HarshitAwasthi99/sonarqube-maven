@@ -43,7 +43,7 @@ jobs:
         with:
           action: deploy
           manifests: |
-            deployment.yml
+            deployment.yaml
           images: |
            acrforicicipoc.azurecr.io/k8sdemo:${{ github.sha }}
           imagepullsecrets: |
