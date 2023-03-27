@@ -23,16 +23,11 @@ jobs:
 
       - uses: azure/setup-kubectl@v2.0
 
-     # Set the target AKS cluster
-      - uses: azure/login@v1
-        with:
-         client-id: 3d381001-a6ab-4ff4-8e8b-ce6a09b87b59
-         tenant-id: e4e34038-ea1f-4882-b6e8-ccd776459ca0
-         subscription-id: 052c9332-2138-411f-adef-e7445d02ecc6
+ 
       
       - uses: Azure/aks-set-context@v1
         with:
-          
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
           cluster-name: aks-icici-poc
           resource-group: harshit_RG
 
