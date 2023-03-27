@@ -18,7 +18,7 @@ jobs:
 
       - uses: azure/setup-kubectl@v2.0
 
-      # Set the target AKS cluster.
+      # Set the target AKS cluster
       - uses: azure/login@v1
         with:
          client-id: 3d381001-a6ab-4ff4-8e8b-ce6a09b87b59
