@@ -39,7 +39,7 @@ jobs:
           container-registry-password: XMN7oCHVvwf6NtYOQthQQtJV9jppvH3i1UVGzGuXAE+ACRAako4r
           secret-name: demo-k8s-secret
 
-      - uses: Azure/k8s-deploy@v4
+      - uses: Azure/k8s-deploy@v3.1
         with:
           action: deploy
           strategy: basic
