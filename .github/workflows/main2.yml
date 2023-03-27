@@ -25,10 +25,12 @@ jobs:
 
       - uses: azure/setup-kubectl@v3
 
+      - uses: azure/login@v1
+        with:
+         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - uses: Azure/aks-set-context@v3
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
           cluster-name: aks-icici-poc
           resource-group: harshit_RG
 
