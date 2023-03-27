@@ -1,4 +1,4 @@
-FROM maven:3.6.0-jdk-11-slim
+FROM nginx:latest
 COPY . .
 Workdir .
 # Copy ./settings.xml /root/.m2/
