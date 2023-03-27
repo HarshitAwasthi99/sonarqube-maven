@@ -1,3 +1,5 @@
+#ci cd
+
 on: [push]
 permissions:
   id-token: write
