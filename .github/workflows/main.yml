@@ -18,7 +18,7 @@ jobs:
       run: |
         sudo docker build .
         git clone https://github.com/HarshitAwasthi99/sonarqube-maven.git
-        cd sonarqube
+        cd sonarqube-maven
         mvn package
         
   
