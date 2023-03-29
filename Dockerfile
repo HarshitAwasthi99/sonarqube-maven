@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM ubuntu:latest
 COPY . .
 Workdir .
 # Copy ./settings.xml /root/.m2/
